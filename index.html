@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DB工学 - 定着確認ポータル</title>
+<title>データベース工学 - 学習ポータル</title>
 <style>
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -30,6 +30,14 @@
         margin: 0;
         color: #e2e8f0;
         font-size: 0.95em;
+    }
+    .section-title {
+        color: #2b6cb0;
+        border-bottom: 2px solid #cbd5e0;
+        padding-bottom: 6px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-size: 1.3em;
     }
     .grid {
         display: grid;
@@ -70,9 +78,13 @@
         border-radius: 12px;
         margin-bottom: 10px;
     }
-    .badge-active {
+    .badge-check {
         background-color: #c6f6d5;
         color: #22543d;
+    }
+    .badge-homework {
+        background-color: #feebc8;
+        color: #744210;
     }
     .badge-pending {
         background-color: #e2e8f0;
@@ -93,30 +105,39 @@
 <body>
 
 <header>
-    <h1>データベース工学 定着確認ポータル</h1>
-    <p>各回の学習用コンテンツ（問題・解答）一覧</p>
+    <h1>データベース工学 学習ポータル</h1>
+    <p>各回の定着確認および授業時間外学習（宿題）一覧ポータル</p>
 </header>
 
+<!-- 第01回 -->
+<h2 class="section-title">第01回 講義コンテンツ</h2>
 <div class="grid">
-    <!-- 第01回 -->
-    <a href="1_db_check_interactive.html" class="card">
-        <span class="badge badge-active">学習可能</span>
+    <a href="db_check_interactive.html" class="card">
+        <span class="badge badge-check">小テスト対策</span>
         <h3>第01回 定着確認</h3>
-        <p>DB/DBMS基礎、永続化、トランザクション、Lost Update、排他制御、RDB用語等</p>
+        <p>クリックして答えを確認できる問題集</p>
     </a>
 
-    <!-- 今後追加する回用のプレースホルダー例 -->
-    <!-- 第02回を作成したら disabled を外し、hrefのファイル名を合わせてください -->
+    <a href="db_homework_01.html" class="card">
+        <span class="badge badge-homework">宿題・事前準備</span>
+        <h3>第01回 授業時間外学習</h3>
+        <p>小テスト準備、教科書読破、Docker環境構築チェックシート</p>
+    </a>
+</div>
+
+<!-- 第02回以降（将来拡張用枠） -->
+<h2 class="section-title">今後の講義コンテンツ（準備中）</h2>
+<div class="grid">
     <a href="db_check_02.html" class="card disabled" onclick="return false;">
         <span class="badge badge-pending">準備中</span>
-        <h3>第02回 定着確認</h3>
+        <h3>第02回 定着確認・宿題</h3>
         <p>次回講義用の学習コンテンツ（未追加）</p>
     </a>
 
     <a href="db_check_03.html" class="card disabled" onclick="return false;">
         <span class="badge badge-pending">準備中</span>
-        <h3>第03回 定着確認</h3>
-        <p>次回以降の学習用ページ</p>
+        <h3>第03回 定着確認・宿題</h3>
+        <p>次回以降の学習用ページ（未追加）</p>
     </a>
 </div>
 
