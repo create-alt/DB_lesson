@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DB工学 - 定着確認ポータル</title>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: #2d3748;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f7fafc;
+    }
+    header {
+        background-color: #1a365d;
+        color: white;
+        padding: 25px 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+        margin: 0 0 8px 0;
+        font-size: 1.8em;
+    }
+    header p {
+        margin: 0;
+        color: #e2e8f0;
+        font-size: 0.95em;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 15px;
+    }
+    .card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 18px;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-color: #3182ce;
+    }
+    .card.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: #edf2f7;
+    }
+    .card.disabled:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: #e2e8f0;
+    }
+    .badge {
+        display: inline-block;
+        padding: 3px 8px;
+        font-size: 0.75em;
+        font-weight: bold;
+        border-radius: 12px;
+        margin-bottom: 10px;
+    }
+    .badge-active {
+        background-color: #c6f6d5;
+        color: #22543d;
+    }
+    .badge-pending {
+        background-color: #e2e8f0;
+        color: #4a5568;
+    }
+    .card h3 {
+        margin: 0 0 8px 0;
+        color: #2b6cb0;
+        font-size: 1.1em;
+    }
+    .card p {
+        margin: 0;
+        font-size: 0.85em;
+        color: #718096;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>データベース工学 定着確認ポータル</h1>
+    <p>各回の学習用コンテンツ（問題・解答）一覧</p>
+</header>
+
+<div class="grid">
+    <!-- 第01回 -->
+    <a href="1_db_check_interactive.html" class="card">
+        <span class="badge badge-active">学習可能</span>
+        <h3>第01回 定着確認</h3>
+        <p>DB/DBMS基礎、永続化、トランザクション、Lost Update、排他制御、RDB用語等</p>
+    </a>
+
+    <!-- 今後追加する回用のプレースホルダー例 -->
+    <!-- 第02回を作成したら disabled を外し、hrefのファイル名を合わせてください -->
+    <a href="db_check_02.html" class="card disabled" onclick="return false;">
+        <span class="badge badge-pending">準備中</span>
+        <h3>第02回 定着確認</h3>
+        <p>次回講義用の学習コンテンツ（未追加）</p>
+    </a>
+
+    <a href="db_check_03.html" class="card disabled" onclick="return false;">
+        <span class="badge badge-pending">準備中</span>
+        <h3>第03回 定着確認</h3>
+        <p>次回以降の学習用ページ</p>
+    </a>
+</div>
+
+</body>
+</html>

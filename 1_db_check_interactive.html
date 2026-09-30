@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第01回 DB工学 - 定着確認 (クリックで解答表示)</title>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: #2d3748;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f7fafc;
+    }
+    h1 {
+        color: #1a365d;
+        border-bottom: 3px solid #3182ce;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    h2 {
+        color: #2b6cb0;
+        background-color: #ebf8ff;
+        padding: 10px 15px;
+        border-left: 5px solid #3182ce;
+        border-radius: 4px;
+        margin-top: 35px;
+        margin-bottom: 15px;
+    }
+    .btn-container {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+        position: sticky;
+        top: 10px;
+        z-index: 100;
+    }
+    .btn {
+        padding: 8px 16px;
+        background-color: #3182ce;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: background-color 0.2s;
+    }
+    .btn:hover {
+        background-color: #2b6cb0;
+    }
+    details {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        overflow: hidden;
+        transition: all 0.2s ease;
+    }
+    details[open] {
+        border-color: #cbd5e0;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    }
+    summary {
+        font-weight: bold;
+        padding: 14px 18px;
+        cursor: pointer;
+        background-color: #ffffff;
+        color: #2d3748;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+    }
+    summary::-webkit-details-marker {
+        display: none;
+    }
+    summary::after {
+        content: '👉 答えを表示';
+        font-size: 0.85em;
+        color: #3182ce;
+        font-weight: normal;
+        background: #ebf8ff;
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid #bee3f8;
+        white-space: nowrap;
+        margin-left: 10px;
+    }
+    details[open] summary::after {
+        content: '▲ 隠す';
+        color: #718096;
+        background: #edf2f7;
+        border-color: #cbd5e0;
+    }
+    details[open] summary {
+        border-bottom: 1px solid #e2e8f0;
+        background-color: #f7fafc;
+    }
+    .answer {
+        padding: 14px 18px;
+        background-color: #f0fff4;
+        color: #22543d;
+        border-left: 4px solid #38a169;
+        font-size: 0.98em;
+        line-height: 1.6;
+    }
+</style>
+</head>
+<body>
+
+<h1>第01回 データベース工学 定着確認（自己採点シート）</h1>
+
+<div class="btn-container">
+    <button class="btn" onclick="setAll(true)">すべて開く</button>
+    <button class="btn" onclick="setAll(false)" style="background-color: #718096;">すべて閉じる</button>
+</div>
+
+<h2>2.0.1 定着確認</h2>
+<details>
+    <summary>Q1. データベースが行うデータの操作について、「蓄積・管理」以外の例を3つ答えよ。</summary>
+    <div class="answer"><b>答え:</b> 検索、更新、削除、集計、加工などから3つ</div>
+</details>
+<details>
+    <summary>Q2. データそのものと、それを管理する仕組みを区別する場合、「DB」と「DBMS」はそれぞれ何を指すか答えよ。</summary>
+    <div class="answer"><b>答え:</b> DB はデータそのもの、DBMS はそれらを管理する仕組みやソフトウェアを指す。</div>
+</details>
+<details>
+    <summary>Q3. 「データベース」という言葉が指すものは、非情報分野でもソフトウェア開発の分野でも常に同じであり、文脈によって使い分けられることはない。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切ではない</div>
+</details>
+<details>
+    <summary>Q4. ソフトウェア開発の説明で、DBMS を使わずに CSVファイル を読み込むだけの処理を「データベースから情報を取得する」と表現すると、どのような誤解を与えるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> 単なるファイルの読み込みではなく、DBMS を利用してデータを管理・取得していると受け取られるおそれがある。</div>
+</details>
+<details>
+    <summary>Q5. DBMS の役割はデータを保存することだけであり、ユーザーごとのアクセス制御や障害時復旧は、DBMS が標準的に備える機能には含まれない。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切ではない</div>
+</details>
+<details>
+    <summary>Q6. DBMS とは何の略語か英語で答えよ。</summary>
+    <div class="answer"><b>答え:</b> Database Management System</div>
+</details>
+<details>
+    <summary>Q7. DBMS の日本語での名称を答えよ。</summary>
+    <div class="answer"><b>答え:</b> データベースマネジメントシステム、データベース管理システム</div>
+</details>
+<details>
+    <summary>Q8. PostgreSQLなどのサーバ型DBMSが備えている機能として「適切ではないもの」はどれか。（❶ユーザー制御 ❷ネットワーク ❸整合性 ❹プログラム自動作成 ❺障害復旧 ❻ウイルス対策）</summary>
+    <div class="answer"><b>答え:</b> ❹, ❻</div>
+</details>
+<details>
+    <summary>Q9. 一般に「DBMS とは見なされないもの」はどれか。（❶SQLite3 ❷PostgreSQL ❸Oracle ❹Excel ❺Access ❻SQLAlchemy ➐Pandas ❽Prisma）</summary>
+    <div class="answer"><b>答え:</b> ❹, ❻, ➐, ❽</div>
+</details>
+<details>
+    <summary>Q10. 開発現場において「データベースのバージョンアップ」という表現が指しているものはどれか。（❶データ更新 ❷DBMSソフトウェア更新 ❸形式変更 ❹データ増加）</summary>
+    <div class="answer"><b>答え:</b> ❷（DBMS ソフトウェアを新しいバージョンに更新すること）</div>
+</details>
+<details>
+    <summary>Q11. 非情報分野における広い意味においても「データベース」とは基本的に電子データを指すため、紙の電話帳や国語辞典はデータベースとは見なさない。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切ではない</div>
+</details>
+<details>
+    <summary>Q12. 非情報分野では、一定の形式や構造に従って整理された CSVファイル や JSONファイル も「データベース」と呼ぶことがある。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切である</div>
+</details>
+
+<h2>3.1.1 定着確認</h2>
+<details>
+    <summary>Q1. プロセス (プログラム) の終了後も必要な情報を保持し、次に起動したときにも利用できるように、SSD や HDD などへ保存することを何というか。漢字3文字で答えよ。</summary>
+    <div class="answer"><b>答え:</b> 永続化</div>
+</details>
+<details>
+    <summary>Q2. プロセス (プログラム) の終了後も情報を利用したい場合、そのプログラムの実行中のメモリに保持しておくだけでは不十分な理由を答えよ。</summary>
+    <div class="answer"><b>答え:</b> プロセスの終了時に、そのプロセスが使っていたメモリ領域は解放される。再び起動しても、以前の変数の値は自動的には復元されないため。</div>
+</details>
+<details>
+    <summary>Q3. アプリで入力した情報をファイルに保存した。アプリを終了し、再び起動したときに、その保存済みの情報を処理に利用するためには、どのような処理が必要か答えよ。</summary>
+    <div class="answer"><b>答え:</b> 保存したファイルから情報を読み込み、アプリで利用できる状態にする処理。</div>
+</details>
+<details>
+    <summary>Q4. データの保存が完了しなかったり、保存済みのデータが利用できなくなったりする原因となる障害の例を2つ答えよ。</summary>
+    <div class="answer"><b>答え:</b> 例: 記憶装置の故障、保存処理の途中でのプログラムの異常終了。</div>
+</details>
+<details>
+    <summary>Q5. データを永続化しているアプリでも、データの重要度に応じてバックアップを設計する必要がある理由を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 永続化しても、記憶装置の故障などで元のデータを失う可能性があるため。</div>
+</details>
+<details>
+    <summary>Q6. PostgreSQL は、標準的な構成では OS のファイルシステム上のファイルにデータを保存する。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切である</div>
+</details>
+
+<h2>3.2.1 定着確認</h2>
+<details>
+    <summary>Q1. JSON とは何の略語か英語で答えよ。</summary>
+    <div class="answer"><b>答え:</b> JavaScript Object Notation</div>
+</details>
+<details>
+    <summary>Q2. CSV とは何の略語か英語で答えよ。</summary>
+    <div class="answer"><b>答え:</b> Comma Separated Values</div>
+</details>
+<details>
+    <summary>Q3. 入力された名前を変数に保持して画面に表示するだけのプログラムがある。この名前をプログラムの終了後も保持し、次に起動したときに利用するためには、どのような処理が必要か答えよ。</summary>
+    <div class="answer"><b>答え:</b> 名前をファイルや DBMS などを用いて永続化し、次に起動したときに読み込む処理が必要。</div>
+</details>
+<details>
+    <summary>Q4. アプリの設定を起動時に読み込む用途や、集計結果を別のシステムに渡す用途でも、JSON や CSV のファイルを使う方法は不適切であり、必ず DBMS を利用しなければならない。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切ではない</div>
+</details>
+<details>
+    <summary>Q5. 複数のデータ更新をひとまとまりとして扱い、そのまとまり全体を反映するか、全体を取り消すかを保証する仕組みを何というか。カタカナで答えよ。</summary>
+    <div class="answer"><b>答え:</b> トランザクション</div>
+</details>
+<details>
+    <summary>Q6. 注文の記録 (処理A) と在庫の更新 (処理B) を行うプログラムで、処理Aが完了した直後にプログラムが停止し、処理Bが実行されなかった。このような不整合を防ぐため、処理A と 処理B をどのような単位の処理として扱う必要があるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> 処理Aと処理Bをひとまとまりとして扱い、処理の一部だけが反映された状態が残らないよう、両方を反映するか、両方とも反映しないようにする必要がある。</div>
+</details>
+<details>
+    <summary>Q7. 「注文を記録する」と「在庫を減らす」を1つのトランザクションにまとめた。処理が完了したとき、または取り消されたときの最終的な結果として、適切なものを全て答えよ。（❶両方反映, ❷注文のみ反映, ❸在庫のみ反映, ❹両方取り消し）</summary>
+    <div class="answer"><b>答え:</b> ❶, ❹</div>
+</details>
+<details>
+    <summary>Q8. あるトランザクション全体を取り消すと、そのトランザクションの開始前から保存されていたデータも含めて、データベース内の全データが削除される。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切ではない（取り消す対象は、そのトランザクションで行った変更のみ）。</div>
+</details>
+<details>
+    <summary>Q9. トランザクションを利用できる DBMS を導入すれば、「注文の記録」と「在庫の更新」をまとめるべきかどうかを、DBMS がアプリの業務内容から自動的に判断してくれる。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切ではない（アプリの要件に合わせて人間が設計する必要がある）。</div>
+</details>
+<details>
+    <summary>Q10. データの更新を「全て反映するか、全て取り消すか」のまとまりとして扱うことは、処理の途中で失敗した場合に、どのような問題を防ぐために役立つか答えよ。</summary>
+    <div class="answer"><b>答え:</b> ひとまとまりとして扱うべき更新の一部だけが残り、関連するデータの整合性が失われる問題を防ぐために役立つ。</div>
+</details>
+<details>
+    <summary>Q11. ある商品の在庫数が 10 個、記録済みの注文が 4 件ある。「購入注文1件追加」と「在庫数1減」を1つのトランザクションとして実行したが途中で失敗し取り消された。取り消し後の在庫数と注文件数を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 在庫数は 10 個、注文は 4 件。</div>
+</details>
+<details>
+    <summary>Q12. 口座Aの残高 3,000 円、口座Bの残高 1,000 円から「口座Aから500円引き、口座Bに500円加える」トランザクションを確定した。確定後の各口座残高を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 口座Aは 2,500 円、口座Bは 1,500 円。</div>
+</details>
+
+<h2>3.3.1 定着確認</h2>
+<details>
+    <summary>Q1. I/O とは何の略語か英語で答えよ。</summary>
+    <div class="answer"><b>答え:</b> Input/Output</div>
+</details>
+<details>
+    <summary>Q2. データファイル設計で、データの表現形式を「フォーマット」、項目の構成・型・制約などの定義を「スキーマ」と区別するとき、次の組み合わせとして最も適切なものを選べ。（A: CSV形式で保存しカンマ区切り, B: 学籍番号と氏名を文字列、成績を0~100整数）</summary>
+    <div class="answer"><b>答え:</b> ❷（A は フォーマット、B はスキーマ）</div>
+</details>
+<details>
+    <summary>Q3. 「学生情報」と「商品情報」のファイルが、どちらもCSV形式で保存されている。この2つのファイルのフォーマットとスキーマについて最も適切な説明を選べ。</summary>
+    <div class="answer"><b>答え:</b> ❷（同じ CSV 形式でも、項目の構成や型は異なり得る）</div>
+</details>
+<details>
+    <summary>Q4. 学生情報.csv の「成績」のルールを「0〜100の整数」から「A・B・C・Dのいずれか」に変更する場合、主にどちらの変更に当たるか。</summary>
+    <div class="answer"><b>答え:</b> ❷（スキーマの変更）</div>
+</details>
+
+<h2>3.4.2 定着確認</h2>
+<details>
+    <summary>Q1. サーバの設定ファイルに対して「管理者X」が編集して保存した後、古い状態のまま開いていた「管理者Y」が編集して保存した結果、「管理者X」の内容が消失した。この現象を何と呼ぶか英語で答えよ。</summary>
+    <div class="answer"><b>答え:</b> Lost Update</div>
+</details>
+<details>
+    <summary>Q2. アプリAとBが同じCSVを読み込み、Aは住所、Bは成績を変更してファイル全体を書き戻す。更新の消失について最も適切な説明を選べ。</summary>
+    <div class="answer"><b>答え:</b> ❸（古い内容を含むファイル全体を書き戻すことで、他方の更新が失われる可能性がある）</div>
+</details>
+<details>
+    <summary>Q3. 複数のアプリによるファイルの更新が互いに干渉しないよう、ロックなどを使ってアクセスを制限する仕組みを何というか。</summary>
+    <div class="answer"><b>答え:</b> 排他制御</div>
+</details>
+<details>
+    <summary>Q4. ファイル全体への排他ロック中、教員Aが「学生X」の住所を編集している際、教員Bは同じファイルの「学生Y」の成績を更新できるか。理由とともに答えよ。</summary>
+    <div class="answer"><b>答え:</b> 更新できない。ロックの対象がファイル全体なので、別の学生や項目への更新でもロック解除を待つ必要があるため。</div>
+</details>
+<details>
+    <summary>Q5. アプリAとBが保存する瞬間だけ排他ロックを取得してファイル全体を上書きする方法で Lost Update を防げるか。理由とともに答えよ。</summary>
+    <div class="answer"><b>答え:</b> 防げない。書き込み自体を順番に実行しても、後から保存するアプリが古い内容を保持していれば上書きされるため。</div>
+</details>
+<details>
+    <summary>Q6. CSV/JSONを直接読み書きする方法と、DBMSを利用する方法の説明として最も適切なものを選べ。</summary>
+    <div class="answer"><b>答え:</b> ❷（DBMSを利用する場合、検索、更新、トランザクション、同時アクセス制御などをDBMSに任せることができる）</div>
+</details>
+<details>
+    <summary>Q7. ファイル直接読み書きと比べて、DBMS利用が特に有効となる要件の例を2つ答えよ。</summary>
+    <div class="answer"><b>答え:</b> 例: 複数のユーザやプログラムが同じデータを同時に参照・更新すること、複数のデータを一連の処理として整合性を保ちながら更新すること。</div>
+</details>
+
+<h2>3.5.1 定着確認</h2>
+<details>
+    <summary>Q1. ファイルやフォルダに対して、誰が操作を行えるかを定める「アクセス権」を何というか。カタカナで答えよ。</summary>
+    <div class="answer"><b>答え:</b> パーミッション</div>
+</details>
+<details>
+    <summary>Q2. 教員Xにファイル全体のアクセス権を与えつつアプリ画面で編集範囲を制限した対策について、最も適切な説明を選べ。</summary>
+    <div class="answer"><b>答え:</b> ❷（アプリ上では制限できるが、テキストエディタ等で直接編集できる経路が残っているため変更される可能性がある）</div>
+</details>
+<details>
+    <summary>Q3. 教員XのOS権限でファイル書き込みを禁止した場合、同じ権限で動く成績管理アプリからの書き込みはどうなるか。</summary>
+    <div class="answer"><b>答え:</b> 成績管理アプリからも書き込めなくなる。</div>
+</details>
+<details>
+    <summary>Q4. ファイル全体の読み取り権限を与えたまま、アプリ画面上で一部項目を非表示にすることで閲覧制限を実現できるか。</summary>
+    <div class="answer"><b>答え:</b> 実現できない。ファイル全体の読み取り権限があれば直接開いて読み取ることができるため。</div>
+</details>
+<details>
+    <summary>Q5. 担当科目の成績だけを変更させたい場合、アプリ画面の制限以外にどのような点を確認する必要があるか。</summary>
+    <div class="answer"><b>答え:</b> テキストエディタなど、アプリを経由せずにファイルを直接書き換えられる経路が残っていないか確認する。</div>
+</details>
+
+<h2>3.6.1 定着確認</h2>
+<details>
+    <summary>Q1. 共有フォルダに置く方法と、自前サーバアプリを介する方法について最も適切な説明を選べ。</summary>
+    <div class="answer"><b>答え:</b> ❷（自前サーバアプリを介すことで細かな制御は可能だが、認証・認可や同時アクセス制御等を自ら設計・実装する必要がある）</div>
+</details>
+<details>
+    <summary>Q2. 自前サーバアプリを開発する場合、データの読み書き以外にセキュリティ上必要となる機能や対策の例を2つ答えよ。</summary>
+    <div class="answer"><b>答え:</b> 例: 利用者を確認するための認証、利用者ごとのアクセス権を確認する認可、通信の暗号化、操作ログの記録・監査など。</div>
+</details>
+
+<h2>4.2.1 定着確認</h2>
+<details>
+    <summary>Q1. SQL とは何の略語か英語で答えよ。</summary>
+    <div class="answer"><b>答え:</b> Structured Query Language</div>
+</details>
+<details>
+    <summary>Q2. PostgreSQL のような DBMS は、ネットワーク経由 (TCP/IP) で接続可能な別ホストに配置することもできる。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切である</div>
+</details>
+<details>
+    <summary>Q3. DBMSサーバへの接続には、DBMSクライアントライブラリまたは専用のクライアントアプリを使用する。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切である</div>
+</details>
+<details>
+    <summary>Q4. PostgreSQLは、標準的な構成でもOSのファイルシステムを利用することなくデータの永続化を実現している。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切ではない</div>
+</details>
+
+<h2>6.1.1 定着確認</h2>
+<details>
+    <summary>Q1. RDBMS に対するクエリを記述するために使用される言語をアルファベット3文字で答えよ。</summary>
+    <div class="answer"><b>答え:</b> SQL</div>
+</details>
+<details>
+    <summary>Q2. RDB において、一般にテーブル（表）の「列」を指す語をカタカナで答えよ。</summary>
+    <div class="answer"><b>答え:</b> カラム、フィールド、アトリビュート (属性)</div>
+</details>
+<details>
+    <summary>Q3. RDB において、一般にテーブル（表）の「行」を指す語をカタカナで答えよ。</summary>
+    <div class="answer"><b>答え:</b> レコード、タプル</div>
+</details>
+<details>
+    <summary>Q4. 社員テーブル (5項目, 7人分) のカラム数とレコード数を答えよ。</summary>
+    <div class="answer"><b>答え:</b> カラム数は5、レコード数は7。</div>
+</details>
+<details>
+    <summary>Q5. birthday という項目と、社員1人分の1行はそれぞれ「カラム」「レコード」のどちらか。</summary>
+    <div class="answer"><b>答え:</b> birthday はカラム、社員1人分の1行はレコード。</div>
+</details>
+<details>
+    <summary>Q6. RDBにおいて、複数のテーブルを関連付けて結合する操作をアルファベットで答えよ。</summary>
+    <div class="answer"><b>答え:</b> JOIN</div>
+</details>
+<details>
+    <summary>Q7. 社員テーブルと部署テーブルを結びつける際、どのカラム同士を対応させればよいか。</summary>
+    <div class="answer"><b>答え:</b> ❷（employees.department_id と departments.id）</div>
+</details>
+<details>
+    <summary>Q8. 社員「品質 守」(department_id: 2) に対応する部署名を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 曖昧戦略部</div>
+</details>
+<details>
+    <summary>Q9. 部署名を社員レコードごとに重複保存し、部署名変更時に一部だけ修正した場合どんな問題が起こるか。</summary>
+    <div class="answer"><b>答え:</b> 古い部署名と新しい部署名が混在し、データの不整合が生じる。</div>
+</details>
+<details>
+    <summary>Q10. 社員テーブルとは別に部署テーブルを設ける構成のメリットとして最も適切なものを選べ。</summary>
+    <div class="answer"><b>答え:</b> ❶（所属する社員がまだいない部署も、部署の情報として登録できる）</div>
+</details>
+<details>
+    <summary>Q11. 部署一元管理設計がデータ不整合を防ぎやすい理由を述べた説明は適切か。</summary>
+    <div class="answer"><b>答え:</b> 適切である（部署テーブルの該当レコードのみ更新すればよく、更新漏れを防げるため）。</div>
+</details>
+
+<h2>6.3.8 定着確認</h2>
+<details>
+    <summary>Q1. LAMPスタックの「L」「A」「M」「P」の意味を答えよ。</summary>
+    <div class="answer"><b>答え:</b> Linux, Apache, MySQL, PHP</div>
+</details>
+<details>
+    <summary>Q2. 「クライアント・サーバー型 RDBMS」と「組み込み型 RDBMS」の違いを答えよ。</summary>
+    <div class="answer"><b>答え:</b> クライアント・サーバー型は別プロセスのDBMSに接続して操作し、組み込み型はアプリに組み込まれたライブラリを通じて操作する。</div>
+</details>
+<details>
+    <summary>Q3. アプリにライブラリとして組み込み、独立したサーバを起動せずに利用する RDBMS を選べ。</summary>
+    <div class="answer"><b>答え:</b> ❸（SQLite）</div>
+</details>
+<details>
+    <summary>Q4. PostgreSQL はクライアント・サーバー型なので、必ず別々のコンピュータで動かす必要がある。（適切 / 適切ではない）</summary>
+    <div class="answer"><b>答え:</b> 適切ではない</div>
+</details>
+<details>
+    <summary>Q5. PostgreSQLで扱えるデータ型について最も適切な説明を選べ。</summary>
+    <div class="answer"><b>答え:</b> ❷（数値・文字列に加え、配列や JSON/JSONB 型など多様な型を扱える）</div>
+</details>
+<details>
+    <summary>Q6. PostgreSQLのSQLを別RDBMSへ移す際、そのまま動くとは限らないという説明は適切か。</summary>
+    <div class="answer"><b>答え:</b> 適切である</div>
+</details>
+<details>
+    <summary>Q7. ソースコードから分かれて別ソフトウェアとして開発を進めることを表す用語（カタカナ）を答えよ。</summary>
+    <div class="answer"><b>答え:</b> フォーク</div>
+</details>
+<details>
+    <summary>Q8. Python標準ライブラリからSQLiteを利用するモジュール名を答えよ。</summary>
+    <div class="answer"><b>答え:</b> sqlite3</div>
+</details>
+<details>
+    <summary>Q9. SQLiteの WAL モードの略語（英語）を答えよ。</summary>
+    <div class="answer"><b>答え:</b> Write-Ahead Logging</div>
+</details>
+<details>
+    <summary>Q10. 動作中の SQLite データベースのバックアップとして最も適切な方法を選べ。</summary>
+    <div class="answer"><b>答え:</b> ❸（Online Backup API や VACUUM INTO などの仕組みを利用する）</div>
+</details>
+
+<script>
+    function setAll(openState) {
+        document.querySelectorAll('details').forEach(el => {
+            el.open = openState;
+        });
+    }
+</script>
+
+</body>
+</html>
