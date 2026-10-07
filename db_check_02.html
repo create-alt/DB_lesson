@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第02回 DB工学 - 定着確認 (選択肢付き・クリックで解答表示)</title>
+<title>第02回 DB工学 - 定着確認 (全87問・選択肢付き)</title>
 <style>
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -144,7 +144,7 @@
 <a href="index.html" class="nav-btn">← ポータルへ戻る</a>
 
 <header>
-    <h1>第02回 データベース工学 定着確認（自己採点シート）</h1>
+    <h1>第02回 データベース工学 定着確認（全87問）</h1>
     <p>Docker / PostgreSQL 基本操作</p>
 </header>
 
@@ -153,7 +153,7 @@
     <button class="btn" onclick="setAll(false)" style="background-color: #718096;">すべて閉じる</button>
 </div>
 
-<h2>3.2.1 定着確認（コンテナ作成とライフサイクル）</h2>
+<h2>3.2.1 定着確認（13問）</h2>
 <details>
     <summary>
         <div>
@@ -217,7 +217,7 @@
     <div class="answer"><b>答え:</b> docker container rm -f pg18</div>
 </details>
 
-<h2>3.3.1 定着確認（コンテナの状態確認）</h2>
+<h2>3.3.1 定着確認（8問）</h2>
 <details>
     <summary>Q1. Docker で起動中のコンテナだけの一覧を表示するコマンドを答えよ。</summary>
     <div class="answer"><b>答え:</b> docker ps</div>
@@ -251,7 +251,7 @@
     <div class="answer"><b>答え:</b> postgres:18.6 は使用したイメージ名とタグ、 pg18 はコンテナの名前。</div>
 </details>
 
-<h2>3.4.1 定着確認（コンテナの起動）</h2>
+<h2>3.4.1 定着確認（4問）</h2>
 <details>
     <summary>Q1. 作成済みのコンテナ hoge-fuga を起動するためのコマンドを答えよ。</summary>
     <div class="answer"><b>答え:</b> docker container start hoge-fuga （省略形: docker start hoge-fuga）</div>
@@ -274,7 +274,7 @@
     <div class="answer"><b>答え:</b> ❶ 起動中</div>
 </details>
 
-<h2>3.5.1 定着確認（コンテナ内コマンド実行 docker exec）</h2>
+<h2>3.5.1 定着確認（5問）</h2>
 <details>
     <summary>Q1. 起動中コンテナ pg18 内で Bash を起動し、対話的に操作するためのコマンドを答えよ。</summary>
     <div class="answer"><b>答え:</b> docker container exec -it pg18 bash</div>
@@ -301,7 +301,7 @@
     <div class="answer"><b>答え:</b> Long Option: --tty。仮想ターミナル (TTY) を割り当てる。</div>
 </details>
 
-<h2>3.5.3 定着確認（Linuxシェルの操作環境）</h2>
+<h2>3.5.3 定着確認（5問）</h2>
 <details>
     <summary>Q1. ターミナルの「プロンプト」とは何か答えよ。</summary>
     <div class="answer"><b>答え:</b> ユーザにコマンドなどの入力を促すために表示される文字列。</div>
@@ -333,7 +333,7 @@
     <div class="answer"><b>答え:</b> ❷ 適切ではない（軽量化のため最小限のコマンドのみ含まれているため）。</div>
 </details>
 
-<h2>3.5.5 定着確認（psql 接続）</h2>
+<h2>3.5.5 定着確認（5問）</h2>
 <details>
     <summary>Q1. psql -U student -d playground の -U と -d の意味を答えよ。</summary>
     <div class="answer"><b>答え:</b> -U はユーザ名、 -d はデータベース名。</div>
@@ -365,7 +365,7 @@
     <div class="answer"><b>答え:</b> ❷ 適切ではない（-U はユーザ名の指定）。</div>
 </details>
 
-<h2>3.5.8 定着確認（テーブル操作・SQL）</h2>
+<h2>3.5.8 定着確認（3問）</h2>
 <details>
     <summary>Q1. s_users テーブルに (1, 'Alice', 20) と (2, 'Bob', 25) を1つのSQLで挿入する命令を答えよ。</summary>
     <div class="answer"><b>答え:</b> INSERT INTO s_users (id, name, age) VALUES (1, 'Alice', 20), (2, 'Bob', 25);</div>
@@ -379,7 +379,7 @@
     <div class="answer"><b>答え:</b> DELETE FROM s_users;</div>
 </details>
 
-<h2>3.5.10 定着確認（SELECT文）</h2>
+<h2>3.5.10 定着確認（7問）</h2>
 <details>
     <summary>Q1. s_users テーブルの全レコード・全カラムを取得する SQL を答えよ。</summary>
     <div class="answer"><b>答え:</b> SELECT * FROM s_users;</div>
@@ -414,7 +414,7 @@
     <div class="answer"><b>答え:</b> ❷ 適切ではない（抽出結果に含めないだけでテーブル定義は変わらない）。</div>
 </details>
 
-<h2>3.7.1 & 3.8.1 定着確認（コンテナの停止・削除・永続性）</h2>
+<h2>3.8.1 定着確認（8問）</h2>
 <details>
     <summary>Q1. 起動中コンテナ pg18 を停止するコマンドと正常停止時の応答を答えよ。</summary>
     <div class="answer"><b>答え:</b> コマンド: docker container stop pg18 / 応答: pg18</div>
@@ -458,7 +458,7 @@
     <div class="answer"><b>答え:</b> 削除されない（コンテナとボリュームは独立して管理される）。</div>
 </details>
 
-<h2>3.9.1 定着確認（総合・まとめ）</h2>
+<h2>3.9.1 定着確認（20問）</h2>
 <details>
     <summary>
         <div>
@@ -479,7 +479,7 @@
             <div class="options">【選択肢】A: pg18_test / B: pg18-test / C: pg18.test / D: _pg18</div>
         </div>
     </summary>
-    <div class="answer"><b>答え:</b> A, B, C が使用可能。Dは先頭が英数字ではないため不可。</div>
+    <div class="answer"><b>答え:</b> A、B、C が使用可能。Dは先頭が英数字ではないため不可。</div>
 </details>
 <details>
     <summary>
@@ -551,35 +551,56 @@
     <summary>Q18. docker container run の -d オプションの意味とターミナルの状態を答えよ。</summary>
     <div class="answer"><b>答え:</b> デタッチドモード（バックグラウンド実行）。ターミナルは即座に操作可能に戻る。</div>
 </details>
-
-<h2>5.0.1 定着確認（ポートマッピング -p）</h2>
 <details>
-    <summary>Q1. PostgreSQL の標準通信ポート番号を答えよ。</summary>
+    <summary>Q19. docker container run で作成・起動した pg18 コンテナを停止した。同じコンテナを再び起動するときに使うコマンドを答えよ。また、同じ名前を指定して docker container run --name pg18 ... を再度実行した場合はどうなるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> 再起動コマンド: docker container start pg18 。再度 run を実行すると新コンテナを作成しようとするため、コンテナ名の重複エラーとなる。</div>
+</details>
+<details>
+    <summary>Q20. 明示的にボリュームを指定せずに postgres:18.6 から作成したコンテナ pg18 に、テーブルやレコードを保存した。そのコンテナを停止して docker container rm pg18 で削除し、同じ手順・同じ名前で新しく作成すると、以前のDBデータは自動的に引き継がれるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> 自動的には引き継がれない（以前のボリュームにはデータが残っているが、新しいコンテナで自動再利用されないため）。</div>
+</details>
+
+<h2>5.0.1 定着確認（9問）</h2>
+<details>
+    <summary>Q1. PostgreSQL で使用される標準の通信ポート番号を答えよ。</summary>
     <div class="answer"><b>答え:</b> 5432番</div>
 </details>
 <details>
-    <summary>Q2. 同一ホスト内のプロセス間通信に使われるローカル接続の仕組みを答えよ。</summary>
+    <summary>Q2. Linux や macOS などの UNIX 系 OS において、同一ホスト内のプロセス間通信に使われ、PostgreSQL のローカル接続にも利用される仕組みを何というか答えよ。</summary>
     <div class="answer"><b>答え:</b> UNIXドメインソケット</div>
 </details>
 <details>
-    <summary>Q3. Windows（ホストOS）上のツールからコンテナ内PostgreSQLに接続する通信方式を答えよ。</summary>
+    <summary>Q3. Windows (ホストOS) 上のクライアントツールから、Docker コンテナ内の PostgreSQL サーバーに接続するときに使う通信方式を答えよ。</summary>
     <div class="answer"><b>答え:</b> TCP/IP 接続 (ポート通信)</div>
 </details>
 <details>
-    <summary>Q4. -p オプションの役割と、指定するポート番号の順序を答えよ。</summary>
-    <div class="answer"><b>答え:</b> ポートマッピングの設定。「ホスト側ポート:コンテナ側ポート」の順。</div>
+    <summary>Q4. Docker のコンテナ作成コマンドで、 -p オプションは何を設定するものか答えよ。また、コロン : で区切る2つのポート番号をどの順番で指定するか答えよ。</summary>
+    <div class="answer"><b>答え:</b> ホスト側とコンテナ側のポートマッピングを設定するもの。「ホスト側のポート番号:コンテナ側のポート番号」の順。</div>
 </details>
 <details>
-    <summary>Q5. -p 5432:5432 の設定内容を答えよ。</summary>
-    <div class="answer"><b>答え:</b> ホスト側の5432番ポートとコンテナ側の5432番ポートをマッピングする。</div>
+    <summary>Q5. Docker コンテナの作成時に -p 5432:5432 を指定した。この指定はどちら側の何番ポート同士をマッピングするものか答えよ。</summary>
+    <div class="answer"><b>答え:</b> ホスト側の5432番ポートと、コンテナ側の5432番ポート。</div>
 </details>
 <details>
-    <summary>Q6. ホスト側15432番からコンテナ内5432番に接続するための -p オプションを答えよ。</summary>
+    <summary>Q6. Docker コンテナ内の PostgreSQL は5432番ポートで接続を受け付けている。ホスト側の15432番ポートから接続できるようにするため、コンテナ作成時に指定する -p オプションを答えよ。</summary>
     <div class="answer"><b>答え:</b> -p 15432:5432</div>
 </details>
 <details>
-    <summary>Q7. -p 5433:5432 で起動時、ホスト側のツールから接続する際に指定するポート番号を答えよ。</summary>
+    <summary>Q7. PostgreSQL コンテナを -p 5433:5432 を指定して作成・起動した。Windows (ホストOS) 上のクライアントツールから、接続先ホストを localhost として接続するときに指定するポート番号を答えよ。</summary>
     <div class="answer"><b>答え:</b> 5433番（ホスト側のポート番号を指定する）。</div>
+</details>
+<details>
+    <summary>Q8. ホスト側の5432番ポートは別のアプリが使用しているが、5433番ポートは空いている。コンテナ内の PostgreSQL が使う5432番ポートは変更せずに、ホスト側の5433番ポートから接続するための -p オプションを答えよ。</summary>
+    <div class="answer"><b>答え:</b> -p 5433:5432</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q9. コンテナ内の PostgreSQL は5432番ポートで接続を受け付けている。ホスト側の5433番ポートから接続したいので、コンテナ作成時に -p 5432:5433 を指定した。この指定は目的に対して適切か答えよ。また、適切ではない場合は正しい指定を答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（指定が逆で、ホストの5432番とコンテナの5433番をマッピングしている）。正しくは -p 5433:5432 。</div>
 </details>
 
 <script>
