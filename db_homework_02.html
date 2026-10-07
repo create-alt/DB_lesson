@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第02回 DB工学 - 授業時間外学習（宿題）</title>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: #2d3748;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f7fafc;
+    }
+    header {
+        background-color: #1a365d;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    header h1 {
+        margin: 0 0 5px 0;
+        font-size: 1.6em;
+    }
+    .nav-btn {
+        display: inline-block;
+        background-color: #3182ce;
+        color: white;
+        text-decoration: none;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-size: 0.85em;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .nav-btn:hover {
+        background-color: #2b6cb0;
+    }
+    .task-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .task-card input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-top: 3px;
+        cursor: pointer;
+    }
+    .task-content {
+        flex: 1;
+    }
+    .task-title {
+        font-weight: bold;
+        color: #2d3748;
+        font-size: 1.05em;
+        margin-bottom: 5px;
+    }
+    .task-desc {
+        color: #4a5568;
+        font-size: 0.92em;
+    }
+    .code-block {
+        background-color: #2d3748;
+        color: #e2e8f0;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.85em;
+        margin-top: 8px;
+        overflow-x: auto;
+    }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="nav-btn">← ポータルへ戻る</a>
+
+<header>
+    <h1>第02回 授業時間外学習（宿題）チェックシート</h1>
+    <p>次回授業までの取り組みタスク一覧（学修単位科目: 4時間相当）</p>
+</header>
+
+<div class="task-card">
+    <input type="checkbox" id="task1">
+    <div class="task-content">
+        <label for="task1" class="task-title">1. 小テスト対策（第02回 定着確認の総復習）</label>
+        <div class="task-desc">次回講義冒頭の小テストに備え、第02回の全「定着確認」問題・解答・選択肢を繰り返し確認しておきましょう。</div>
+    </div>
+</div>
+
+<div class="task-card">
+    <input type="checkbox" id="task2">
+    <div class="task-content">
+        <label for="task2" class="task-title">2. docker-compose.yaml によるコンテナ管理の調査</label>
+        <div class="task-desc">
+            実務で一般的な <code style="background:#e2e8f0; padding:2px 4px; border-radius:3px;">docker-compose.yaml</code> を使ったコンテナ設定・起動方法を調べてみましょう。<br>
+            <b>(プロンプト例)</b> 「docker container run のコマンドを docker-compose.yaml を使った方法に切り替えたいです。どのようにすればよいですか。」
+        </div>
+    </div>
+</div>
+
+<div class="task-card">
+    <input type="checkbox" id="task3">
+    <div class="task-content">
+        <label for="task3" class="task-title">3. Dockerfile によるカスタムイメージ作成と IaC の概念調査</label>
+        <div class="task-desc">
+            独自イメージ作成に使われる <code style="background:#e2e8f0; padding:2px 4px; border-radius:3px;">Dockerfile</code> の書き方や Infrastructure as Code (IaC) の考え方を調査しましょう。<br>
+            📺 参照動画: <a href="https://www.youtube.com/watch?v=B5tSZr_QqXw&t=1366s" target="_blank">Dockerの基本を学んでコンテナ型の仮想環境を作ろう！ (22:46~)</a>
+        </div>
+    </div>
+</div>
+
+<div class="task-card">
+    <input type="checkbox" id="task4">
+    <div class="task-content">
+        <label for="task4" class="task-title">4. 解説動画の視聴による徹底復習</label>
+        <div class="task-desc">
+            Dockerの基本概念から構築までを動画で復習しておきましょう。<br>
+            📺 参照動画: <a href="https://www.youtube.com/watch?v=B1EQ1oncKak" target="_blank">【図解】これなら分かる!!はじめてのDocker</a>
+        </div>
+    </div>
+</div>
+
+<div class="task-card">
+    <input type="checkbox" id="task5">
+    <div class="task-content">
+        <label for="task5" class="task-title">5. 講義資料の再読・プロンプト例を使った対話学習</label>
+        <div class="task-desc">
+            講義資料を再読し、不明用語を解決してください。特に資料内の「(プロンプト例)」を実際に生成AIに入力し対話を重ねて理解を深めましょう。
+        </div>
+    </div>
+</div>
+
+<div class="task-card">
+    <input type="checkbox" id="task6">
+    <div class="task-content">
+        <label for="task6" class="task-title">6. Docker コマンド＆SQL演習の反復実行</label>
+        <div class="task-desc">
+            コンテナの作成・起動・psql接続・テーブル作成・INSERT・SELECT・ポートマッピング（HeidiSQL接続）の一連操作を3回、4回と繰り返し手で入力して慣れましょう。
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
