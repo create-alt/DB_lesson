@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第02回 DB工学 - 定着確認 (選択肢付き・クリックで解答表示)</title>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: #2d3748;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f7fafc;
+    }
+    header {
+        background-color: #1a365d;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    header h1 {
+        margin: 0 0 5px 0;
+        font-size: 1.6em;
+    }
+    .nav-btn {
+        display: inline-block;
+        background-color: #3182ce;
+        color: white;
+        text-decoration: none;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-size: 0.85em;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .nav-btn:hover {
+        background-color: #2b6cb0;
+    }
+    h2 {
+        color: #2b6cb0;
+        background-color: #ebf8ff;
+        padding: 10px 15px;
+        border-left: 5px solid #3182ce;
+        border-radius: 4px;
+        margin-top: 35px;
+        margin-bottom: 15px;
+    }
+    .btn-container {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+        position: sticky;
+        top: 10px;
+        z-index: 100;
+    }
+    .btn {
+        padding: 8px 16px;
+        background-color: #3182ce;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: background-color 0.2s;
+    }
+    .btn:hover {
+        background-color: #2b6cb0;
+    }
+    details {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        overflow: hidden;
+        transition: all 0.2s ease;
+    }
+    details[open] {
+        border-color: #cbd5e0;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    }
+    summary {
+        font-weight: bold;
+        padding: 14px 18px;
+        cursor: pointer;
+        background-color: #ffffff;
+        color: #2d3748;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+    }
+    summary::-webkit-details-marker {
+        display: none;
+    }
+    summary::after {
+        content: '👉 答えを表示';
+        font-size: 0.85em;
+        color: #3182ce;
+        font-weight: normal;
+        background: #ebf8ff;
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid #bee3f8;
+        white-space: nowrap;
+        margin-left: 10px;
+    }
+    details[open] summary::after {
+        content: '▲ 隠す';
+        color: #718096;
+        background: #edf2f7;
+        border-color: #cbd5e0;
+    }
+    details[open] summary {
+        border-bottom: 1px solid #e2e8f0;
+        background-color: #f7fafc;
+    }
+    .options {
+        background-color: #edf2f7;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin-top: 6px;
+        font-weight: normal;
+        font-size: 0.9em;
+        color: #4a5568;
+    }
+    .answer {
+        padding: 14px 18px;
+        background-color: #f0fff4;
+        color: #22543d;
+        border-left: 4px solid #38a169;
+        font-size: 0.98em;
+        line-height: 1.6;
+    }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="nav-btn">← ポータルへ戻る</a>
+
+<header>
+    <h1>第02回 データベース工学 定着確認（自己採点シート）</h1>
+    <p>Docker / PostgreSQL 基本操作</p>
+</header>
+
+<div class="btn-container">
+    <button class="btn" onclick="setAll(true)">すべて開く</button>
+    <button class="btn" onclick="setAll(false)" style="background-color: #718096;">すべて閉じる</button>
+</div>
+
+<h2>3.2.1 定着確認（コンテナ作成とライフサイクル）</h2>
+<details>
+    <summary>
+        <div>
+            Q1. Docker では、「コンテナ」を雛形として「イメージ」を作成する。この説明は適切か答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（イメージを雛形としてコンテナを作成する）。</div>
+</details>
+<details>
+    <summary>Q2. hoge:3.14 という Docker イメージから、 hoge-fuga というコンテナを作成するためのコマンド (起動はしない) を答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker container create --name hoge-fuga hoge:3.14 （省略形: docker create --name hoge-fuga hoge:3.14）</div>
+</details>
+<details>
+    <summary>Q3. hoge:3.14 という Docker イメージを Docker Hub からプルするコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker image pull hoge:3.14 （省略形: docker pull hoge:3.14）</div>
+</details>
+<details>
+    <summary>Q4. hoge-fuga という Docker コンテナ (停止中) を削除するためのコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker container rm hoge-fuga （省略形: docker rm hoge-fuga）</div>
+</details>
+<details>
+    <summary>Q5. ローカルにダウンロード済みの Docker イメージの一覧を表示するコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker images （または docker image ls）</div>
+</details>
+<details>
+    <summary>Q6. Windows で docker images を実行したところ、Docker Engine に接続できないエラーが表示された。まず何を確認すべきか答えよ。</summary>
+    <div class="answer"><b>答え:</b> Docker Desktop が起動済みで、ステータスが「Running」になっていること。</div>
+</details>
+<details>
+    <summary>Q7. Docker イメージの指定 postgres:18.6 において、 postgres と 18.6 はそれぞれ何を表すか答えよ。</summary>
+    <div class="answer"><b>答え:</b> postgres はイメージの名前、 18.6 はタグ (バージョン) を表す。</div>
+</details>
+<details>
+    <summary>Q8. Docker コンテナの作成時に、環境変数 POSTGRES_DB に playground という値を設定するためのコマンドオプションを答えよ。</summary>
+    <div class="answer"><b>答え:</b> -e POSTGRES_DB=playground</div>
+</details>
+<details>
+    <summary>Q9. docker container create 実行時に返される「コンテナID」とはどのような識別子か。また全員同じIDになるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> Docker がコンテナごとに自動割り当てする64文字の16進数識別子。全員異なるIDになる。</div>
+</details>
+<details>
+    <summary>Q10. 長いコマンドを複数行に分けて入力するとき、行末に付ける記号を PowerShell、Bash、コマンドプロンプト (cmd.exe) の順に答えよ。</summary>
+    <div class="answer"><b>答え:</b> PowerShell: バッククォート (`)、Bash: バックスラッシュ (\)、コマンドプロンプト: キャレット (^)</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q11. Docker の Dockerfile はどのような役割か選べ。
+            <div class="options">【選択肢】❶ カスタマイズしたイメージを作成するための設計図 / ❷ コンテナを作成するたびに必ず用意するファイル</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❶ カスタマイズしたイメージを作成するための設計図（既存イメージを使うだけなら不要）。</div>
+</details>
+<details>
+    <summary>Q12. pg18 という停止中コンテナが存在する状態で docker container create --name pg18 postgres:18.6 を実行するとどうなるか。</summary>
+    <div class="answer"><b>答え:</b> コンテナ名の重複を示すエラーとなり、新しいコンテナは作成されない。</div>
+</details>
+<details>
+    <summary>Q13. 起動中の Docker コンテナ pg18 を強制的に削除するためのコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker container rm -f pg18</div>
+</details>
+
+<h2>3.3.1 定着確認（コンテナの状態確認）</h2>
+<details>
+    <summary>Q1. Docker で起動中のコンテナだけの一覧を表示するコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker ps</div>
+</details>
+<details>
+    <summary>Q2. Docker で停止中のものを含めてコンテナの一覧を表示するコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker ps -a （または docker ps --all）</div>
+</details>
+<details>
+    <summary>Q3. Docker の docker ps コマンドにおいて、 ps は何の略か答えよ。</summary>
+    <div class="answer"><b>答え:</b> process status (プロセスの状態)</div>
+</details>
+<details>
+    <summary>Q4. docker ps --all の --all を同じ意味の Short Option に書き換えたコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker ps -a</div>
+</details>
+<details>
+    <summary>Q5. docker ps -a の結果で、STATUS が Created となっていたコンテナの状態を答えよ。</summary>
+    <div class="answer"><b>答え:</b> コンテナは作成済みだが、まだ一度も起動していない状態。</div>
+</details>
+<details>
+    <summary>Q6. 作成後に起動していないコンテナ pg18 は、 docker ps と docker ps -a のどちらに表示されるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker ps には表示されず、 docker ps -a に表示される。</div>
+</details>
+<details>
+    <summary>Q7. docker ps で1件も表示されなかった際、「コンテナが1つも存在しない」と判断してよいか。また確認用コマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> 判断してはいけない（停止中がある可能性がある）。 docker ps -a で確認する。</div>
+</details>
+<details>
+    <summary>Q8. docker ps -a の結果で IMAGE が postgres:18.6 、 NAMES が pg18 であった。それぞれの意味を答えよ。</summary>
+    <div class="answer"><b>答え:</b> postgres:18.6 は使用したイメージ名とタグ、 pg18 はコンテナの名前。</div>
+</details>
+
+<h2>3.4.1 定着確認（コンテナの起動）</h2>
+<details>
+    <summary>Q1. 作成済みのコンテナ hoge-fuga を起動するためのコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker container start hoge-fuga （省略形: docker start hoge-fuga）</div>
+</details>
+<details>
+    <summary>Q2. 停止中コンテナ pg18 に対し docker container start pg18 を実行し正常起動した際の応答を答えよ。</summary>
+    <div class="answer"><b>答え:</b> コンテナ名の pg18 が表示される。</div>
+</details>
+<details>
+    <summary>Q3. コンテナ起動後、一覧で起動を確認するために実行するコマンドと確認すべき列・表示を答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker ps を実行し、NAMESが「pg18」の行で STATUS が「Up」になっていることを確認する。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q4. Docker Desktop で Name の前に緑色の ● があり、Actions に停止マークが表示されているコンテナの状態を選べ。
+            <div class="options">【選択肢】❶ 起動中 / ❷ 停止中</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❶ 起動中</div>
+</details>
+
+<h2>3.5.1 定着確認（コンテナ内コマンド実行 docker exec）</h2>
+<details>
+    <summary>Q1. 起動中コンテナ pg18 内で Bash を起動し、対話的に操作するためのコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker container exec -it pg18 bash</div>
+</details>
+<details>
+    <summary>Q2. docker container exec の役割と、対象コンテナが起動済みである必要があるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> 起動中のコンテナ内で指定コマンドを実行する。対象コンテナは起動済みである必要がある。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q3. docker container exec -it pg18 bash の bash は何か。また実行場所はどちらか選べ。
+            <div class="options">【選択肢】❶ Windows 側 / ❷ pg18 コンテナ内</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> BashはLinuxのシェル。実行される場所は ❷ pg18 コンテナ内。</div>
+</details>
+<details>
+    <summary>Q4. -it の -i の Long Option とその役割を答えよ。</summary>
+    <div class="answer"><b>答え:</b> Long Option: --interactive。標準入力を開いたままにし、キーボード入力できるようにする。</div>
+</details>
+<details>
+    <summary>Q5. -it の -t の Long Option とその役割を答えよ。</summary>
+    <div class="answer"><b>答え:</b> Long Option: --tty。仮想ターミナル (TTY) を割り当てる。</div>
+</details>
+
+<h2>3.5.3 定着確認（Linuxシェルの操作環境）</h2>
+<details>
+    <summary>Q1. ターミナルの「プロンプト」とは何か答えよ。</summary>
+    <div class="answer"><b>答え:</b> ユーザにコマンドなどの入力を促すために表示される文字列。</div>
+</details>
+<details>
+    <summary>Q2. プロンプト root@e14852ebd977:/# の root, e14852ebd977, /, # の意味を答えよ。</summary>
+    <div class="answer"><b>答え:</b> root: ユーザ名(管理者)、e14852ebd977: ホスト名(コンテナID)、/: ルートディレクトリ、#: root権限</div>
+</details>
+<details>
+    <summary>Q3. コンテナ内の Bash で Linux ディストリビューション情報等を確認するコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> cat /etc/os-release</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q4. Dockerコンテナは仮想マシンのようにコンテナ毎に独立したLinuxカーネルを起動しているか答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（ホストOSのLinuxカーネルを共有している）。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q5. コンテナ内で ls や cat が使えれば nano や vim も必ず使えるか答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（軽量化のため最小限のコマンドのみ含まれているため）。</div>
+</details>
+
+<h2>3.5.5 定着確認（psql 接続）</h2>
+<details>
+    <summary>Q1. psql -U student -d playground の -U と -d の意味を答えよ。</summary>
+    <div class="answer"><b>答え:</b> -U はユーザ名、 -d はデータベース名。</div>
+</details>
+<details>
+    <summary>Q2. ユーザ student、DB playground に接続するための psql コマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> psql -U student -d playground</div>
+</details>
+<details>
+    <summary>Q3. psql -u student -d playground と入力した場合のエラー理由と正しいコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> 大文字・小文字を区別するため -u は無効。正しくは大文字の -U（psql -U student -d playground）。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q4. psql の -d オプションは、バックグラウンド実行のための指定である。この説明は適切か答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（-d はデータベース名の指定）。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q5. psql の -U は、Unixドメインソケットで接続するための指定である。この説明は適切か答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（-U はユーザ名の指定）。</div>
+</details>
+
+<h2>3.5.8 定着確認（テーブル操作・SQL）</h2>
+<details>
+    <summary>Q1. s_users テーブルに (1, 'Alice', 20) と (2, 'Bob', 25) を1つのSQLで挿入する命令を答えよ。</summary>
+    <div class="answer"><b>答え:</b> INSERT INTO s_users (id, name, age) VALUES (1, 'Alice', 20), (2, 'Bob', 25);</div>
+</details>
+<details>
+    <summary>Q2. INSERT 成功時に INSERT 0 5 と表示された。挿入されたレコード件数を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 5件</div>
+</details>
+<details>
+    <summary>Q3. テーブル構造を残したまま全レコードを削除する DELETE FROM 文を記述せよ。</summary>
+    <div class="answer"><b>答え:</b> DELETE FROM s_users;</div>
+</details>
+
+<h2>3.5.10 定着確認（SELECT文）</h2>
+<details>
+    <summary>Q1. s_users テーブルの全レコード・全カラムを取得する SQL を答えよ。</summary>
+    <div class="answer"><b>答え:</b> SELECT * FROM s_users;</div>
+</details>
+<details>
+    <summary>Q2. SELECT * FROM s_users; の * は何を意味するか答えよ。</summary>
+    <div class="answer"><b>答え:</b> すべての列（カラム）。</div>
+</details>
+<details>
+    <summary>Q3. SELECT name, age FROM s_users; で、取得列の指定部分と取得元テーブル指定部分を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 取得列: SELECT name, age / 取得元テーブル: FROM s_users</div>
+</details>
+<details>
+    <summary>Q4. SELECT age, id, name FROM s_users; 実行時、結果列は左からどの順番で表示されるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> age, id, name の順。</div>
+</details>
+<details>
+    <summary>Q5. s_users テーブルから id は表示せず name と age だけをこの順で取得する SQL を答えよ。</summary>
+    <div class="answer"><b>答え:</b> SELECT name, age FROM s_users;</div>
+</details>
+<details>
+    <summary>Q6. SELECT 実行後の末尾に (2 rows) と表示された。この意味を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 取得結果に2件のレコードが含まれていること。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q7. SELECT name, age FROM s_users; を実行するとテーブルから id 列が削除される。この説明は適切か答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（抽出結果に含めないだけでテーブル定義は変わらない）。</div>
+</details>
+
+<h2>3.7.1 & 3.8.1 定着確認（コンテナの停止・削除・永続性）</h2>
+<details>
+    <summary>Q1. 起動中コンテナ pg18 を停止するコマンドと正常停止時の応答を答えよ。</summary>
+    <div class="answer"><b>答え:</b> コマンド: docker container stop pg18 / 応答: pg18</div>
+</details>
+<details>
+    <summary>Q2. 停止中のコンテナ pg18 を削除するコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker container rm pg18</div>
+</details>
+<details>
+    <summary>Q3. 起動中コンテナ pg18 を強制削除(-f)を使わずに削除する手順を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 1. docker container stop pg18 実行後、2. docker container rm pg18 を実行する。</div>
+</details>
+<details>
+    <summary>Q4. pg18 を削除せず停止した際、 docker ps と docker ps -a のどちらに表示されるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker ps には表示されず、 docker ps -a に表示される。</div>
+</details>
+<details>
+    <summary>Q5. コンテナ停止後、再起動（docker container start pg18）した場合、データは残っているか答えよ。</summary>
+    <div class="answer"><b>答え:</b> 残っている（停止しただけではデータは保持される）。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q6. docker container rm pg18 で削除したコンテナを docker container start pg18 で再起動できるか答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（削除済みのため再作成が必要）。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q7. コンテナ pg18 を削除すると元のイメージ postgres:18.6 も削除されるか答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（コンテナ削除でもイメージは残る）。</div>
+</details>
+<details>
+    <summary>Q8. コンテナ削除（docker container rm pg18）により、保存していたボリュームのデータも削除されるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> 削除されない（コンテナとボリュームは独立して管理される）。</div>
+</details>
+
+<h2>3.9.1 定着確認（総合・まとめ）</h2>
+<details>
+    <summary>
+        <div>
+            Q1. プロンプトが root@e14852ebd977:/# のときの操作対象を選べ。
+            <div class="options">【選択肢】❶ Windows の PowerShell / ❷ Docker コンテナ内の Linux シェル / ❸ PostgreSQL の対話モード (psql)</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ Docker コンテナ内の Linux シェル</div>
+</details>
+<details>
+    <summary>Q2. どのコンテナからも使われていないイメージ postgres:18.6 を削除するコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker image rm postgres:18.6</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q3. コンテナ名として使えるものをすべて選べ。使えないものの理由も答えよ。
+            <div class="options">【選択肢】A: pg18_test / B: pg18-test / C: pg18.test / D: _pg18</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> A, B, C が使用可能。Dは先頭が英数字ではないため不可。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q4. PostgreSQL の psql はどちらか選べ。また CLI の略を答えよ。
+            <div class="options">【選択肢】❶ データを管理するサーバープロセス / ❷ SQLを送信して結果確認するCLIクライアントツール</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ SQLを送信するCLIクライアントツール。CLI = Command Line Interface。</div>
+</details>
+<details>
+    <summary>Q5. ユーザ student、DB playground で psql 対話モードを開始するコマンドとオプションの意味を答えよ。</summary>
+    <div class="answer"><b>答え:</b> psql -U student -d playground （-U: ユーザ名, -d: データベース名）</div>
+</details>
+<details>
+    <summary>Q6. テーブルの「スキーマ」とはどのような情報か答えよ。</summary>
+    <div class="answer"><b>答え:</b> どのような列を持ち、どのデータ型で扱うかといったテーブルの構造定義情報。</div>
+</details>
+<details>
+    <summary>Q7. s_users テーブルを作成する CREATE TABLE 文と正常時の応答を答えよ。</summary>
+    <div class="answer"><b>答え:</b> CREATE TABLE s_users (id INTEGER PRIMARY KEY, name TEXT NOT NULL, age INTEGER); （応答: CREATE TABLE）</div>
+</details>
+<details>
+    <summary>Q8. CREATE TABLE 実行時に ERROR: relation "s_users" already exists と表示された意味を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 同名のテーブル等が既に存在している。</div>
+</details>
+<details>
+    <summary>Q9. TRUNCATE TABLE s_users; 実行後、レコードとテーブルはどうなるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> レコードは全削除され空になる。テーブル構造自体は残る。</div>
+</details>
+<details>
+    <summary>Q10. DROP TABLE s_users; 実行後、レコードとテーブルはどうなるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> レコード含めテーブルそのものが削除される。</div>
+</details>
+<details>
+    <summary>
+        <div>
+            Q11. SQL は改行や空白を文字列リテラルのなかも含めてすべて無視する。この説明は適切か答えよ。
+            <div class="options">【選択肢】❶ 適切である / ❷ 適切ではない</div>
+        </div>
+    </summary>
+    <div class="answer"><b>答え:</b> ❷ 適切ではない（文字列リテラル内では改行や空白もデータとして意味を持つ）。</div>
+</details>
+<details>
+    <summary>Q12. psql 対話モードを終了し Bash に戻るコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> \q</div>
+</details>
+<details>
+    <summary>Q13. コンテナ内の Bash を終了するコマンドと戻り先、コンテナの動作状態を答えよ。</summary>
+    <div class="answer"><b>答え:</b> exit コマンド。PowerShellに戻る。コンテナ・PostgreSQLサーバーは動作を継続する。</div>
+</details>
+<details>
+    <summary>Q14. hoge.sql の内容を標準入力で psql に送るコマンドと実行環境（PowerShell / cmd.exe）を答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker container exec -i pg18 psql -U student -d playground < hoge.sql （コマンドプロンプト cmd.exe で実行）。</div>
+</details>
+<details>
+    <summary>Q15. ファイルリダイレクト（<）使用時、ファイル自体がコンテナにコピーされるか答えよ。</summary>
+    <div class="answer"><b>答え:</b> コピーされない。ファイル内容が標準入力を通して psql に渡される。</div>
+</details>
+<details>
+    <summary>Q16. リダイレクト時に -it ではなく -i のみを指定する理由を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 標準入力接続(-i)は必要だが、対話用仮想ターミナル割当(-t)は不要なため。</div>
+</details>
+<details>
+    <summary>Q17. イメージが存在する際、「作成」と「起動」を1つで実行するコマンドを答えよ。</summary>
+    <div class="answer"><b>答え:</b> docker container run</div>
+</details>
+<details>
+    <summary>Q18. docker container run の -d オプションの意味とターミナルの状態を答えよ。</summary>
+    <div class="answer"><b>答え:</b> デタッチドモード（バックグラウンド実行）。ターミナルは即座に操作可能に戻る。</div>
+</details>
+
+<h2>5.0.1 定着確認（ポートマッピング -p）</h2>
+<details>
+    <summary>Q1. PostgreSQL の標準通信ポート番号を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 5432番</div>
+</details>
+<details>
+    <summary>Q2. 同一ホスト内のプロセス間通信に使われるローカル接続の仕組みを答えよ。</summary>
+    <div class="answer"><b>答え:</b> UNIXドメインソケット</div>
+</details>
+<details>
+    <summary>Q3. Windows（ホストOS）上のツールからコンテナ内PostgreSQLに接続する通信方式を答えよ。</summary>
+    <div class="answer"><b>答え:</b> TCP/IP 接続 (ポート通信)</div>
+</details>
+<details>
+    <summary>Q4. -p オプションの役割と、指定するポート番号の順序を答えよ。</summary>
+    <div class="answer"><b>答え:</b> ポートマッピングの設定。「ホスト側ポート:コンテナ側ポート」の順。</div>
+</details>
+<details>
+    <summary>Q5. -p 5432:5432 の設定内容を答えよ。</summary>
+    <div class="answer"><b>答え:</b> ホスト側の5432番ポートとコンテナ側の5432番ポートをマッピングする。</div>
+</details>
+<details>
+    <summary>Q6. ホスト側15432番からコンテナ内5432番に接続するための -p オプションを答えよ。</summary>
+    <div class="answer"><b>答え:</b> -p 15432:5432</div>
+</details>
+<details>
+    <summary>Q7. -p 5433:5432 で起動時、ホスト側のツールから接続する際に指定するポート番号を答えよ。</summary>
+    <div class="answer"><b>答え:</b> 5433番（ホスト側のポート番号を指定する）。</div>
+</details>
+
+<script>
+    function setAll(openState) {
+        document.querySelectorAll('details').forEach(el => {
+            el.open = openState;
+        });
+    }
+</script>
+
+</body>
+</html>
